@@ -3,7 +3,7 @@ const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     searchField.value = '';
-    const url = `http://openlibrary.org/search.json?q=${searchText}`
+    const url = `https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data.docs))
@@ -21,7 +21,7 @@ const displaySearchResult = docs => {
         searchResult.appendChild(div);
     }
     else if (docs.length > 0) {
-        docs.length = 60;
+        docs.length = 20;
         docs?.forEach(book => {
             const div = document.createElement('div');
             div.classList.add('col');
